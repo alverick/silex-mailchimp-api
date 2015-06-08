@@ -1,7 +1,9 @@
 MailChimp API
 =============
 
-Super-simple, minimum abstraction MailChimp API v2 wrapper, in PHP.
+Updated for V3!
+
+Super-simple, minimum abstraction MailChimp API v2 wrapper, in PHP based out of > "drewm/mailchimp-api": "dev-master"
 
 I hate complex wrappers. This lets you get from the MailChimp API docs to the code as directly as possible.
 
@@ -37,16 +39,13 @@ Subscribe someone to a list
 
 	<?php
 	$MailChimp = new \Drewm\MailChimp('abc123abc123abc123abc123abc123-us1');
-	$result = $MailChimp->call('lists/subscribe', array(
-					'id'                => 'b1234346',
-					'email'             => array('email'=>'davy@example.com'),
-					'merge_vars'        => array('FNAME'=>'Davy', 'LNAME'=>'Jones'),
-					'double_optin'      => false,
-					'update_existing'   => true,
-					'replace_interests' => false,
-					'send_welcome'      => false,
-				));
+  $result = $MailChimp->call('lists/{listid}/members/', array(
+     'email_address' => 'panchotest123@yahoo.com',
+     'status'        => 'subscribed',
+     'merge_fields'  => array(
+         'FNAME' => 'Victor'
+     ),
+   ));
 	print_r($result);
-
 
 *Note for contributors:* This is not Code Golf.

@@ -1,6 +1,6 @@
 {
-    "name": "drewm/mailchimp-api",
-    "description": "Super-simple, minimum abstraction MailChimp API v2 wrapper",
+    "name": "vicpal25/mailchimp-api",
+    "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper",
     "license": "MIT",
     "require": {
         "php": ">=5.3"
@@ -8,12 +8,11 @@
     "autoload": {
         "psr-0": { "Drewm": "src/" }
     },
-    "homepage": "https://github.com/drewm/mailchimp-api",
-    "authors": [ 
+    "homepage": "https://github.com/vicpal25/mailchimp-api",
+    "authors": [
         {
             "name": "Drew McLellan",
             "homepage": "http://allinthehead.com/"
-
         }
     ]
 
