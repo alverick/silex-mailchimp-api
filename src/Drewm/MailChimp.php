@@ -4,21 +4,21 @@ namespace Drewm;
 
 /**
  * Super-simple, minimum abstraction MailChimp API v2 wrapper
- * 
+ *
  * Uses curl if available, falls back to file_get_contents and HTTP stream.
  * This probably has more comments than code.
  *
  * Contributors:
  * Michael Minor <me@pixelbacon.com>
  * Lorna Jane Mitchell, github.com/lornajane
- * 
- * @author Drew McLellan <drew.mclellan@gmail.com> 
+ *
+ * @author Drew McLellan <drew.mclellan@gmail.com>
  * @version 1.1.1
  */
 class MailChimp
 {
     private $api_key;
-    private $api_endpoint = 'https://<dc>.api.mailchimp.com/2.0';
+    private $api_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
     private $verify_ssl   = false;
 
     /**
@@ -52,20 +52,22 @@ class MailChimp
     private function makeRequest($method, $args = array(), $timeout = 10)
     {
         $args['apikey'] = $this->api_key;
+        $auth =base64_encode( 'user:'.$args['apikey'] );
+        $url = $this->api_endpoint.'/'.$method;
 
-        $url = $this->api_endpoint.'/'.$method.'.json';
         $json_data = json_encode($args);
 
         if (function_exists('curl_init') && function_exists('curl_setopt')) {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json',  'Authorization: Basic '.$auth));
             curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->verify_ssl);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+
             $result = curl_exec($ch);
             curl_close($ch);
         } else {
@@ -78,6 +80,10 @@ class MailChimp
                                           "Connection: close\r\n" .
                                           "Content-length: " . strlen($json_data) . "\r\n",
                     'content'          => $json_data,
+
+
+
+
                 ),
             )));
         }
