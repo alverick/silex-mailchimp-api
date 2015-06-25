@@ -1,14 +1,14 @@
 {
-    "name": "vicpal25/mailchimp-api",
+    "name": "mi-la01/silex-mailchimp-api",
     "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper",
     "license": "MIT",
     "require": {
         "php": ">=5.3"
     },
     "autoload": {
-        "psr-0": { "Drewm": "src/" }
+        "psr-0": { "MediaInspectionLTD": "src/" }
     },
-    "homepage": "https://github.com/vicpal25/mailchimp-api",
+    "homepage": "https://github.com/mi-la01/mailchimp-api",
     "authors": [
         {
             "name": "Drew McLellan",
