@@ -16,5 +16,7 @@
             "MediaInspectionLTD": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "guzzle/guzzle": "3.9.3"
+    }
 }
