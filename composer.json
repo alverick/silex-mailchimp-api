@@ -17,6 +17,6 @@
         }
     },
     "require": {
-        "guzzle/guzzle": "5.x"
+        "guzzle/guzzle": "5.*"
     }
 }
