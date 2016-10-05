@@ -1,5 +1,5 @@
 {
-    "name": "HectorJunior/silex-mailchimp-api",
+    "name": "hectorjunior/silex-mailchimp-api",
     "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper for Silex PHP",
     "authors": [
         {
