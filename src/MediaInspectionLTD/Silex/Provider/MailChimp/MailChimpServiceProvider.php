@@ -11,20 +11,15 @@
 
 namespace MediaInspectionLTD\Silex\Provider\MailChimp;
 
-use Silex\Application
-  , Silex\ServiceProviderInterface
-  , \MediaInspectionLTD\Client\MailChimp
-;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 class MailChimpServiceProvider implements ServiceProviderInterface
 {
-	public function register( Application $app )
-	{
-		$app[ 'mailchimp' ] = $app-> share( function () use ( $app ) {
-			return new MailChimp( $app[ 'mailchimp.api_key' ], $app[ 'mailchimp.verify_ssl' ]);
-		});
-	}
-
-	public function boot
-	( Application $app ) {}
+    public function register(Container $app)
+    {
+        $app['mailchimp'] = function ($app) {
+            return new MailChimp($app['mailchimp.api_key'], $app['mailchimp.custom_endpoint']);
+        };
+    }
 }

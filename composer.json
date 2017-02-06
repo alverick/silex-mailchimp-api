@@ -1,22 +1,21 @@
 {
-    "name": "hectorjunior/silex-mailchimp-api",
-    "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper for Silex PHP",
-    "authors": [
-        {
-            "name": "HectorJunior",
-            "email": "HectoOrtiz@cloudnine.com.do"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.3.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "MediaInspectionLTD": "src/"
-        }
-    },
-    "require": {
-        "guzzle/guzzle": "5.*"
+  "name": "alverick/silex-mailchimp-api",
+  "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper for Silex PHP",
+  "authors": [
+    {
+      "name": "alverick",
+      "email": "alverick@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.0",
+    "silex/silex": "^2.0",
+    "drewm/mailchimp-api": "^2.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "MediaInspectionLTD": "src/"
+    }
+  }
 }
