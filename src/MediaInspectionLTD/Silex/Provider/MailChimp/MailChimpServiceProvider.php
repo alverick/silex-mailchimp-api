@@ -19,7 +19,7 @@ class MailChimpServiceProvider implements ServiceProviderInterface
     public function register(Container $app)
     {
         $app['mailchimp'] = function ($app) {
-            return new MailChimp($app['mailchimp.api_key'], $app['mailchimp.custom_endpoint']);
+            return new \DrewM\MailChimp\MailChimp($app['mailchimp.api_key'], $app['mailchimp.custom_endpoint']);
         };
     }
 }
